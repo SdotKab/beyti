@@ -1,0 +1,163 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// 1. User Table (Linked to AWS Cognito)
+model User {
+  id                Int          @id @default(autoincrement())
+  email         String     @unique
+  cognitoId     String     @unique // The ID from AWS Cognito
+  firstName     String?
+  lastName      String?
+  properties    Property[]
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+}
+
+// 2. Property Table (The Central Hub)
+model Property {
+  id                Int          @id @default(autoincrement())
+  name              String
+  description       String
+  photoUrls         String[]   // Link to the PDF/Digital Report
+  amenities         Amenity[]
+  beds              Int
+  baths             Float
+  squareFeet        Int
+  propertyType      PropertyType
+  postedDate        DateTime     @default(now())
+  locationId        Int
+  hoaFee    Decimal          @db.Decimal(12, 2)
+  purchasePrice     Decimal          @db.Decimal(12, 2)
+  estimatedValue    Decimal          @db.Decimal(12, 2)
+
+  ownerId           Int
+  owner             User             @relation(fields: [ownerId], references: [id])
+  
+  // Relations
+  location          Location      @relation(fields: [locationId], references: [id])
+  mortgages         Mortgage[]
+  maintenanceLogs   MaintenanceLog[]
+  inspections       Inspection[]
+  documents         Document[]
+  equityHistory     EquitySnapshot[]
+}
+
+// 3. Location
+model Location {
+  id                Int          @id @default(autoincrement())
+  address     String
+  city        String
+  state       String
+  country     String
+  postalCode  String
+  coordinates Unsupported("geography(Point, 4326)")
+
+  properties Property[]
+}
+
+
+// 4. Financials (Plaid API Ready)
+model Mortgage {
+  id                Int          @id @default(autoincrement())
+  lenderName      String
+  loanBalance     Decimal  @db.Decimal(12, 2)
+  interestRate    Float
+  termMonths      Int
+  plaidAccountId  String?  // For syncing via Plaid API
+  propertyId      Int
+  property        Property @relation(fields: [propertyId], references: [id])
+}
+
+// 5. Maintenance & Repairs
+model MaintenanceLog {
+  id                Int          @id @default(autoincrement())
+  title         String   // e.g., "Roof Repair"
+  description   String?
+  cost          Decimal  @db.Decimal(10, 2)
+  category      Category @default(GENERAL)
+  dateCompleted DateTime
+  propertyId    Int
+  property      Property @relation(fields: [propertyId], references: [id])
+}
+
+// 6. Inspections (In-House or Third-Party API)
+model Inspection {
+  id                Int          @id @default(autoincrement())
+  inspectorName   String
+  reportUrl       String   // Link to the PDF/Digital Report
+  healthScore     Int      // 1-100 rating of the home
+  inspectionDate  DateTime
+  propertyId      Int
+  property        Property @relation(fields: [propertyId], references: [id])
+}
+
+// 7. Equity Tracking (For Charts)
+model EquitySnapshot {
+  id                Int          @id @default(autoincrement())
+  capturedAt     DateTime @default(now())
+  totalEquity    Decimal  @db.Decimal(12, 2)
+  homeValue      Decimal  @db.Decimal(12, 2)
+  propertyId     Int
+  property       Property @relation(fields: [propertyId], references: [id])
+}
+
+// 8. Cloud Document Storage
+model Document {
+  id                Int          @id @default(autoincrement())
+  fileName    String
+  fileUrl     String   // S3 Bucket URL
+  docType     DocType
+  propertyId  Int
+  property    Property @relation(fields: [propertyId], references: [id])
+}
+
+// --- Enums for Clean Data ---
+
+enum Category {
+  PLUMBING
+  ELECTRICAL
+  HVAC
+  ROOFING
+  LANDSCAPING
+  GENERAL
+}
+
+enum DocType {
+  INSURANCE
+  MORTGAGE_STMT
+  CLOSING_DOCS
+  WARRANTY
+  RECEIPT
+}
+
+enum Amenity {
+  WASHERDRY
+  AIRCONDITIONING
+  DISHWATER
+  HARDWOODFLOORS
+  WALKINCLOSET
+  MICROWAVE
+  REFRIGERATOR
+  POOL
+  GARAGE
+  FIREPLACE
+}
+
+enum PropertyType {
+  SINGLEFAMILY
+  TOWNHOUSE
+  MULTIFAMILY
+}

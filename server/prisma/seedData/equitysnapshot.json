@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "capturedAt": "2023-07-01T00:00:00Z",
+    "totalEquity": 250000.00,
+    "homeValue": 475000.00,
+    "propertyId": 1
+  },
+  {
+    "id": 2,
+    "capturedAt": "2023-07-01T00:00:00Z",
+    "totalEquity": 150000.00,
+    "homeValue": 575000.00,
+    "propertyId": 2
+  },
+  {
+    "id": 3,
+    "capturedAt": "2023-07-01T00:00:00Z",
+    "totalEquity": 550000.00,
+    "homeValue": 875000.00,
+    "propertyId": 3
+  }
+]

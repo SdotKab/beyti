@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "lenderName": "Wells Fargo",
+    "loanBalance": 380000.00,
+    "interestRate": 6.75,
+    "termMonths": 360,
+    "plaidAccountId": "2345678-90ab-cdef-1234-567890abcde4",
+    "propertyId": 1
+  },
+  {
+    "id": 2,
+    "lenderName": "Bank of America",
+    "loanBalance": 351700.00,
+    "interestRate": 4.5,
+    "termMonths": 480,
+    "plaidAccountId": "12345678-90ab-cdef-1234-567890abcde5",
+    "propertyId": 2
+  },
+  {
+    "id": 3,
+    "lenderName": "Ally Bank",
+    "loanBalance": 851500.00,
+    "interestRate": 3.25,
+    "termMonths": 480,
+    "plaidAccountId": "12345678-90ab-cdef-1234-567890abcde6",
+    "propertyId": 3
+  }
+]

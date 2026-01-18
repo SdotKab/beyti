@@ -10,10 +10,10 @@
     "module": "nodenext",
     "moduleResolution": "nodenext" /* Specify how TypeScript looks up a file from a given module specifier. */,
     "resolveJsonModule": true /* Enable importing .json files. */,
-    "target": "es2016",
+    "target": "esnext",
     // "types": [],
     // For nodejs:
-    "lib": ["es2016"],
+    "lib": ["esnext"],
     "types": ["node"],
     // and npm install -D @types/node
 

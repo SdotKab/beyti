@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "fileName": "homeowner_insurance_policy_1.pdf",
+    "fileUrl": "/documents/homeowner_insurance_policy_1.pdf",
+    "docType": "INSURANCE",
+    "propertyId": 1
+  },
+  {
+    "id": 2,
+    "fileName": "homeowner_insurance_policy_2.pdf",
+    "fileUrl": "/documents/homeowner_insurance_policy_2.pdf",
+    "docType": "INSURANCE",
+    "propertyId": 2 
+  },
+  {
+    "id": 3 ,
+    "fileName": "homeowner_insurance_policy_3.pdf",
+    "fileUrl": "/documents/homeowner_insurance_policy_3.pdf",
+    "docType": "INSURANCE",
+    "propertyId": 3
+  },
+  {
+    "id": 4,
+    "fileName": "dishwasher_warranty_4.pdf",
+    "fileUrl": "/documents/dishwasher_warranty_4.pdf",
+    "docType": "WARRANTY",
+    "propertyId": 1
+  },
+  {
+    "id": 5,
+    "fileName": "refrigerator_warranty_5.pdf",
+    "fileUrl": "/documents/refrigerator_warranty_5.pdf",
+    "docType": "WARRANTY",
+    "propertyId": 2
+  },
+  {
+    "id": 6,
+    "fileName": "oven_warranty_6.pdf",
+    "fileUrl": "/documents/oven_warranty_6.pdf",
+    "docType": "WARRANTY",
+    "propertyId": 3
+  }
+]

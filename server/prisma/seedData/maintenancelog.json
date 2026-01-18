@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "title": "Electrical Work",
+    "description": "Electrical work needed in the kitchen.",
+    "cost": 1500.00,
+    "category": "ELECTRICAL",
+    "dateCompleted": "2023-05-20T00:00:00Z",
+    "propertyId": "1"
+  },
+  {
+    "id": 2,
+    "title": "Roof Repair",
+    "description": "Roof repair due to storm damage.",
+    "cost": 1500.00,
+    "category": "ROOFING",
+    "dateCompleted": "2023-05-20T00:00:00Z",
+    "propertyId": "2"
+  },
+  {
+    "id": 3,
+    "title": "Sink Replacement",
+    "description": "Sink replacement in the bathroom.",
+    "cost": 900.00,
+    "category": "PLUMBING",
+    "dateCompleted": "2023-05-20T00:00:00Z",
+    "propertyId": "3"
+  },
+  {
+    "id": 4,
+    "title": "HVAC Maintenance",
+    "description": "Annual HVAC system maintenance.",
+    "cost": 300.00,
+    "category": "HVAC",
+    "dateCompleted": "2023-05-20T00:00:00Z",
+    "propertyId": "1"
+  },
+  {
+    "id": 5,
+    "title": "Landscaping",
+    "description": "Front yard landscaping and lawn care.",
+    "cost": 600.00,
+    "category": "LANDSCAPING",
+    "dateCompleted": "2023-05-20T00:00:00Z",
+    "propertyId": "2"
+  },
+  {
+    "id": 6,
+    "title": "Window Replacement",
+    "description": "Replace old windows with energy-efficient models.",
+    "cost": 2000.00,
+    "category": "GENERAL",
+    "dateCompleted": "2023-05-20T00:00:00Z",
+    "propertyId": "3"
+  }
+]

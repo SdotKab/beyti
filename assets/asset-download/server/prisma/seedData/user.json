@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "email": "john.doe@example.com",
+        "cognitoId": "us-east-2:23456789-90ab-cdef-1234-567890abcdef",
+        "firstName": "John",
+        "lastName": "Doe"
+    },
+    {
+        "id": 2,
+        "email": "jane.smith@example.com",
+        "cognitoId": "us-east-2:34567890-90ab-cdef-1234-567890abcdef",
+        "firstName": "Jane",
+        "lastName": "Smith"
+    },
+    {
+        "id": 3,
+        "email": "michael.johnson@example.com",
+        "cognitoId": "us-east-2:45678901-90ab-cdef-1234-567890abcdef",
+        "firstName": "Michael",
+        "lastName": "Johnson"
+    }
+]

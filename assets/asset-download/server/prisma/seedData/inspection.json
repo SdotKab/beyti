@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "inspectorName": "John Smith",
+    "reportUrl": "/reporturl.com/1",
+    "healthScore": 74,
+    "inspectionDate": "2023-05-20T00:00:00Z",
+    "propertyId": 1
+  },
+  {
+    "id": 2,
+    "inspectorName": "Sarah Johnson",
+    "reportUrl": "/reporturl.com/2",
+    "healthScore": 84,
+    "inspectionDate": "2023-05-20T00:00:00Z",
+    "propertyId": 2
+  },
+  {
+    "id": 3,
+    "inspectorName": "Michael Brown",
+    "reportUrl": "/reporturl.com/3",
+    "healthScore": 94,
+    "inspectionDate": "2023-05-20T00:00:00Z",
+    "propertyId": 3
+  }
+]
